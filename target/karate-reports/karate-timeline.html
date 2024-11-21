@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <title>Karate Timeline</title>
+    <style>
+      body, html { font-family: arial, sans-serif; font-size: 11pt; }
+      #visualization { box-sizing: border-box; width: 100%; height: 300px; }
+      .vis-item.failed { background-color: #F2928C; }
+      .page-heading { padding: 0.5em; margin-bottom: 0.5em; background-color: lightcyan; border: 1px solid gray; }
+    </style>
+    <script src="res/vis.min.js"></script>
+    <link href="res/vis.min.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <div class="page-heading">
+      <a href="karate-summary.html">Summary</a>
+    </div>     
+    <div id="visualization"></div>
+    <script>
+var groups = [{"content":"main","id":1}];
+var items = [{"id":1,"group":1,"content":"features\/UserWorkflowIntegrationTest[1:6]","start":1732154998797,"end":1732155004565,"title":"features\/UserWorkflowIntegrationTest[1:6] 13:09:58.797-13:10:04.565 Workflow with Linked Actions"},{"id":2,"group":1,"content":"features\/createPostTest[1:3]","start":1732154991943,"end":1732154992926,"title":"features\/createPostTest[1:3] 13:09:51.943-13:09:52.926 Validate POST request to create a new post"},{"id":3,"group":1,"content":"features\/multiEndpointTest[1:6]","start":1732154992982,"end":1732154993717,"title":"features\/multiEndpointTest[1:6] 13:09:52.982-13:09:53.717 Get a list of users and validate the response"},{"id":4,"group":1,"content":"features\/multiEndpointTest[2:15]","start":1732154993725,"end":1732154994738,"title":"features\/multiEndpointTest[2:15] 13:09:53.725-13:09:54.738 Create a new post for a specific user and validate the response"},{"id":5,"group":1,"content":"features\/multiEndpointTest[3:25]","start":1732154994746,"end":1732154995545,"title":"features\/multiEndpointTest[3:25] 13:09:54.746-13:09:55.545 Retrieve comments for a specific post and validate details"},{"id":6,"group":1,"content":"features\/multiEndpointTest[4:34]","start":1732154995554,"end":1732154996946,"title":"features\/multiEndpointTest[4:34] 13:09:55.554-13:09:56.946 Update an existing post and validate the response"},{"id":7,"group":1,"content":"features\/multiEndpointTest[5:43]","start":1732154996955,"end":1732154998713,"title":"features\/multiEndpointTest[5:43] 13:09:56.955-13:09:58.713 Delete a post and verify response"},{"id":8,"group":1,"content":"features\/simpleTest[1:3]","start":1732154990580,"end":1732154991706,"title":"features\/simpleTest[1:3] 13:09:50.580-13:09:51.706 Validate GET request to fetch all posts"}];
+</script>
+    <script>
+      var container = document.getElementById('visualization');
+      var timeline = new vis.Timeline(container);
+      timeline.setOptions({groupOrder: 'content'});
+      timeline.setGroups(new vis.DataSet(groups));
+      timeline.setItems(new vis.DataSet(items));
+    </script>
+  </body>
+</html>
